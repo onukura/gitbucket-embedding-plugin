@@ -6,7 +6,7 @@ This is still alpha ver.
 
 ## Screenshot
 
-![screenshot](https://github.com/onukura/gitbcket-embedding-plugin/blob/assets/screenshot.png?raw=true)
+![screenshot](https://github.com/onukura/gitbucket-embedding-plugin/blob/assets/screenshot.png?raw=true)
 
 ## Install
 
