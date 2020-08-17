@@ -1,0 +1,5 @@
+name := "gitbucket-embedding-plugin"
+organization := "io.github.gitbucket"
+version := "0.1.0"
+scalaVersion := "2.13.1"
+gitbucketVersion := "4.34.0"
