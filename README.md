@@ -39,6 +39,13 @@ example1: `http://localhost:8080/root/gitbucket/blob/19f0431a3fb4a9c3560dbf9b1d7
 
 example2: `http://localhost/root/gitbucket/blob/19f0431a3fb4a9c3560dbf9b1d74f2073da7708f/GitBucketCoreModuleSpec.scala#L5-L10`
 
+## Note
+
+you better use link with sha, not branch name such as `master`. Because `master` changes by commits.
+
+- Good url:  `http://localhost:8080/root/gitbucket/blob/19f0431a3fb4a9c3560dbf9b1d74f2073da7708f/GitBucketCoreModuleSpec.scala#L5-L10`
+- Bad url: `http://localhost:8080/root/gitbucket/blob/master/GitBucketCoreModuleSpec.scala#L5-L10`
+
 ## Limitation
 
 user name, repo name, branch name includes special character may not be processed.
