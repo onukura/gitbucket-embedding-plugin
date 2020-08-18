@@ -2,7 +2,7 @@ $(function(){
 
     function generateSnippetElement(repo, filename, commit, lineStartNum, lineEndNum, content, url, commitUrl){
         return [
-            "<style>.prettyprint ol{word-wrap: normal;} .prettyprint ol.linenums > li { list-style-type: decimal; }</style>",
+            "<style>.prettyprint ol{word-wrap:normal;} .prettyprint ol.linenums > li {list-style-type:decimal;}</style>",
             "<div class='panel panel-default'>",
             "<div class='panel-heading'>",
             "<span><b><a href="+ url + ">" + repo + "/" + filename + "</a></b></span>",
@@ -11,7 +11,7 @@ $(function(){
             "<span><a href=" + commitUrl + ">" + commit + "</a></span>",
             "</div>",
             "<div class='panel-body' style='padding:0; background-color:white;'>",
-            "<pre class='prettyprint linenums:" + lineStartNum + "' style='padding-left: 25px;'>",
+            "<pre class='prettyprint linenums:" + lineStartNum + "' style='padding-left:15px; margin-bottom:0;'>",
             content,
             "</pre>",
             "</div>",
@@ -63,7 +63,7 @@ $(function(){
                 let startLine = Number(mat[6]);
                 let endLine = startLine;
                 if(typeof mat[7] !== "undefined"){
-                    endLine = Number(mat[6].replace("-L", ""));
+                    endLine = Number(mat[7].replace("-L", ""));
                 };
                 let commitUrl = getCommitUrl(mat)
                 try{
