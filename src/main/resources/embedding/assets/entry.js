@@ -32,14 +32,16 @@ $(function(){
 
     function getContent(url){
         var xmlHttp;
-        try {
-            xmlHttp = new XMLHttpRequest();
-            xmlHttp.open("GET", fixUrl(url), false);
-            xmlHttp.send(null);
-            return xmlHttp.responseText
-        } catch(e) {
-            return "XMLHttpRequest error"
+        xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", fixUrl(url), false);
+        xmlHttp.send(null);
+        if(xmlHttp.responseURL.includes(location.host + "/signin?redirect")){
+            throw new Error("XMLHttpRequest error")
         }
+        if(xmlHttp.status != 200){
+            throw new Error("XMLHttpRequest error")
+        }
+        return xmlHttp.responseText
     };
 
     function convertLinks(){
@@ -63,12 +65,14 @@ $(function(){
                     endLine = Number(mat[6].replace("-L", ""));
                 };
                 let commitUrl = getCommitUrl(mat)
-                let content = getContent(url);
-                let linesAll = content.split("\n");
-                let lines = linesAll.slice(startLine-1, endLine).join("\n");
-                let snippetElement = generateSnippetElement(repo, filename, commit, startLine, endLine, lines, url, commitUrl);
-                element.insertAdjacentHTML('afterend', snippetElement);
-                element.remove();
+                try{
+                    let content = getContent(url);
+                    let linesAll = content.split("\n");
+                    let lines = linesAll.slice(startLine-1, endLine).join("\n");
+                    let snippetElement = generateSnippetElement(repo, filename, commit, startLine, endLine, lines, url, commitUrl);
+                    element.insertAdjacentHTML('afterend', snippetElement);
+                    element.remove();
+                }catch(e){}
             }
         }
         prettyPrint();
