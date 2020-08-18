@@ -23,10 +23,9 @@ $(function(){
         return url.replace("/blob/", "/raw/");
     };
 
-    function getCommitUrl(x){
-        let url = x[0]
+    function getCommitUrl(url, filename){
         url = url.replace("/blob/", "/commit/")
-        reg = new RegExp('/' + x[4] + '#L\\d+(-L\\d+)?$')
+        reg = new RegExp('/' + filename + '#L\\d+(-L\\d+)?$')
         return url.replace(reg, "")
     };
 
@@ -65,7 +64,7 @@ $(function(){
                 if(typeof mat[7] !== "undefined"){
                     endLine = Number(mat[7].replace("-L", ""));
                 };
-                let commitUrl = getCommitUrl(mat)
+                let commitUrl = getCommitUrl(url, filename)
                 try{
                     let content = getContent(url);
                     let linesAll = content.split("\n");
