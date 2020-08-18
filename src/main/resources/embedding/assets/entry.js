@@ -4,11 +4,11 @@ $(function(){
         return [
             "<style>.prettyprint ol{word-wrap:normal;} .prettyprint ol.linenums > li {list-style-type:decimal;}</style>",
             "<div class='panel panel-default'>",
-            "<div class='panel-heading'>",
+            "<div class='panel-heading' style='font-size:12px; padding:5px; padding-left:15px;'>",
             "<span><b><a href="+ url + ">" + repo + "/" + filename + "</a></b></span>",
             "<br>",
             "<span style='color: gray'>Lines " + lineStartNum + " to " + lineEndNum + " in </span>",
-            "<span><a href=" + commitUrl + ">" + commit + "</a></span>",
+            "<span style='font-size:11px;'><a href=" + commitUrl + ">" + commit + "</a></span>",
             "</div>",
             "<div class='panel-body' style='padding:0; background-color:white;'>",
             "<pre class='prettyprint linenums:" + lineStartNum + "' style='padding-left:15px; margin-bottom:0;'>",
