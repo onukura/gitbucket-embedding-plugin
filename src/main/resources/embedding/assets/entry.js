@@ -45,7 +45,7 @@ $(function(){
     };
 
     function convertLinks(){
-        var matchPattern = new RegExp('https?://' + location.host + '/(\\w+)/(\\w+)/blob/(\\w+)/([\\w\\.]+)#L([0-9]+)(-L[0-9]+)?$');
+        var matchPattern = new RegExp('https?://' + location.host + '(/\\w+)?/(\\w+)/(\\w+)/blob/(\\w+)/([\\w\\.]+)#L([0-9]+)(-L[0-9]+)?$');
         var elements = $('.markdown-body p a');
         var element;
         var url;
@@ -55,13 +55,14 @@ $(function(){
             url = element.innerText;
             mat = url.match(matchPattern);
             if(mat !== null){
-                let owner = mat[1];
-                let repo = mat[2];
-                let commit = mat[3];
-                let filename = mat[4];
-                let startLine = Number(mat[5]);
+                let urlPrefix = mat[1];
+                let owner = mat[2];
+                let repo = mat[3];
+                let commit = mat[4];
+                let filename = mat[5];
+                let startLine = Number(mat[6]);
                 let endLine = startLine;
-                if(typeof mat[6] !== "undefined"){
+                if(typeof mat[7] !== "undefined"){
                     endLine = Number(mat[6].replace("-L", ""));
                 };
                 let commitUrl = getCommitUrl(mat)
