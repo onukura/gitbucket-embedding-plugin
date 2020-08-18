@@ -31,6 +31,14 @@ This makes the assembly package
 `target/scala-2.13/gitbucket-embedding-plugin-{plugin-version}.jar`
 for deployment.
 
+## Supported link type
+
+`http(s)://host/{owner}/{repository}/blob/{SHA}/{filename}#L{StartLineNumber}-L{EndLineNumber}`
+
+example1: `http://localhost:8080/root/gitbucket/blob/19f0431a3fb4a9c3560dbf9b1d74f2073da7708f/GitBucketCoreModuleSpec.scala#L5-L10`
+
+example2: `http://localhost/root/gitbucket/blob/19f0431a3fb4a9c3560dbf9b1d74f2073da7708f/GitBucketCoreModuleSpec.scala#L5-L10`
+
 ## Limitation
 
 Because of path processing, currently this plugin can handle GitBucket which in running without url prefix.
