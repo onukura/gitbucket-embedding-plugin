@@ -41,7 +41,7 @@ example2: `http://localhost/root/gitbucket/blob/19f0431a3fb4a9c3560dbf9b1d74f207
 
 ## Limitation
 
-user name, repo name, branch name includes `/` may occur error.
+user name, repo name, branch name includes special character may not be processed.
 
 ## Version
 
