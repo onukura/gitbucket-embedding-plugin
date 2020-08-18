@@ -44,7 +44,7 @@ $(function(){
     };
 
     function convertLinks(){
-        var matchPattern = new RegExp('https?://' + location.host + '(/\\w+)?/(\\w+)/(\\w+)/blob/(\\w+)/([\\w\\.]+)#L([0-9]+)(-L[0-9]+)?$');
+        var matchPattern = new RegExp('https?://' + location.host + '(/[\\w-\\.]+)?/([\\w-\\.]+)/([\\w-\\.]+)/blob/([\\w-\\.]+)/([\\w-\\.]+)#L([0-9]+)(-L[0-9]+)?$');
         var elements = $('.markdown-body p a');
         var element;
         var url;

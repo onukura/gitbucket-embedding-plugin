@@ -41,8 +41,7 @@ example2: `http://localhost/root/gitbucket/blob/19f0431a3fb4a9c3560dbf9b1d74f207
 
 ## Limitation
 
-Because of path processing, currently this plugin can handle GitBucket which in running without url prefix.
-And branch name icludes `/` may occur error.
+user name, repo name, branch name includes `/` may occur error.
 
 ## Version
 
