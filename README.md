@@ -33,11 +33,11 @@ for deployment.
 
 ## Supported link type
 
-`http(s)://host/{owner}/{repository}/blob/{SHA}/{filename}#L{StartLineNumber}-L{EndLineNumber}`
+`http(s)://host/{owner}/{repository}/blob/{SHA}/{path/to/file}#L{StartLineNumber}-L{EndLineNumber}`
 
 example1: `http://localhost:8080/root/gitbucket/blob/19f0431a3fb4a9c3560dbf9b1d74f2073da7708f/GitBucketCoreModuleSpec.scala#L5-L10`
 
-example2: `http://localhost/root/gitbucket/blob/19f0431a3fb4a9c3560dbf9b1d74f2073da7708f/GitBucketCoreModuleSpec.scala#L5-L10`
+example2: `http://localhost/root/gitbucket/blob/19f0431a3fb4a9c3560dbf9b1d74f2073da7708f/src/main/scala/GitBucketCoreModuleSpec.scala#L5-L10`
 
 ## Note
 
