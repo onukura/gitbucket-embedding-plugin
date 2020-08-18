@@ -22,9 +22,9 @@ $(function(){
         return url.replace("/blob/", "/raw/");
     };
 
-    function getCommitUrl(url, filename){
+    function getCommitUrl(url, filepath){
         url = url.replace("/blob/", "/commit/")
-        reg = new RegExp('/' + filename + '#L\\d+(-L\\d+)?$')
+        reg = new RegExp('/' + filepath + '#L\\d+(-L\\d+)?$')
         return url.replace(reg, "")
     };
 
@@ -43,7 +43,7 @@ $(function(){
     };
 
     function convertLinks(){
-        var matchPattern = new RegExp('https?://' + location.host + '(/[\\w-\\.]+)?/([\\w-\\.]+)/([\\w-\\.]+)/blob/([\\w-\\.]+)/([\\w-\\.]+)#L([0-9]+)(-L[0-9]+)?$');
+        var matchPattern = new RegExp('https?://' + location.host + '(/[\\w-\\.]+)?/([\\w-\\.]+)/([\\w-\\.]+)/blob/([\\w-\\.]+)/([\\w-\\./]+)#L([0-9]+)-?L?([0-9]+)?$');
         var elements = $('.markdown-body p a');
         var element;
         var url;
@@ -57,18 +57,18 @@ $(function(){
                 let owner = mat[2];
                 let repo = mat[3];
                 let commit = mat[4];
-                let filename = mat[5];
+                let filepath = mat[5];
                 let startLine = Number(mat[6]);
                 let endLine = startLine;
                 if(typeof mat[7] !== "undefined"){
-                    endLine = Number(mat[7].replace("-L", ""));
+                    endLine = Number(mat[7]);
                 };
-                let commitUrl = getCommitUrl(url, filename)
+                let commitUrl = getCommitUrl(url, filepath)
                 try{
                     let content = getContent(url);
                     let linesAll = content.split("\n");
                     let lines = linesAll.slice(startLine-1, endLine).join("\n");
-                    let snippetElement = generateSnippetElement(repo, filename, commit, startLine, endLine, lines, url, commitUrl);
+                    let snippetElement = generateSnippetElement(repo, filepath, commit, startLine, endLine, lines, url, commitUrl);
                     element.insertAdjacentHTML('afterend', snippetElement);
                     element.remove();
                 }catch(e){}
