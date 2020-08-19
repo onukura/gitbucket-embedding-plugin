@@ -1,8 +1,8 @@
 # gitbucket-embedding-plugin
 
-A GitBucket plugin to replace code link to snippet
+A GitBucket plugin to replace code link to embed snippet.
 
-This is still alpha ver.
+**To achieve embed snippet, this plugin is not best way. It should be done by GitBucket itself. Until the day GitBucket get this feature, this plugin could be a one of choices.**
 
 ## Screenshot
 
