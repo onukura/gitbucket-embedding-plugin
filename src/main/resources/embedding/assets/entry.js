@@ -1,6 +1,6 @@
 $(function(){
     const patternElement1 = '[\\w!\\?\\+\\-_~=;\\.,\\*&@#\\$\\%\\(\\)\'\\[\\]]+';
-    const patternElement2 = '[\\w!\\?\\+\\-_~=;\\.,\\*&@\\$\\%\\(\\)\'\\[\\]]+';
+    const patternElement2 = '[/\\w!\\?\\+\\-_~=;\\.,\\*&@\\$\\%\\(\\)\'\\[\\]]+';
     const matchPattern = new RegExp(
         '^'+
         location.origin +
