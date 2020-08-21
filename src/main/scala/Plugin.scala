@@ -11,7 +11,8 @@ class Plugin extends gitbucket.core.plugin.Plugin {
     new Version("0.1.0"),
     new Version("0.1.1"),
     new Version("0.1.2"),
-    new Version("1.0.0")
+    new Version("1.0.0"),
+    new Version("1.0.1")
   )
 
   override val assetsMappings: Seq[(String, String)] = Seq("/embedding" -> "/embedding/assets")
