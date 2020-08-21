@@ -2,7 +2,7 @@
 
 A GitBucket plugin to replace code link to embed snippet.
 
-**To achieve embed snippet, this plugin is not best way. It should be done by GitBucket itself. Until the day GitBucket get this feature, this plugin could be a one of choices.**
+To achieve embed snippet, this plugin is not best way. It should be done by GitBucket itself. Until the day GitBucket get this feature, this plugin could be a one of choices.
 
 ## Screenshot
 
@@ -56,12 +56,9 @@ No Good url:
 http://localhost:8080/root/gitbucket/blob/master/GitBucketCoreModuleSpec.scala#L5-L10
 ```
 
-## Limitation
-
-user name, repo name, branch name includes special character may not be processed.
-
 ## Version
 
 Plugin version|GitBucket version
 :---|:---
+1.0.x |4.34.x -
 0.1.x |4.34.x -
