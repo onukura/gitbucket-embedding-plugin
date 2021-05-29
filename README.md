@@ -72,4 +72,5 @@ http://localhost:8080/root/gitbucket/blob/master/GitBucketCoreModuleSpec.scala#L
 Plugin version|GitBucket version
 :---|:---
 1.1.x |4.34.x -
+1.0.x |4.34.x -
 0.1.x |4.34.x -
