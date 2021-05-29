@@ -3,7 +3,7 @@ $(function(){
     const patternElement2 = '[/\\w!\\?\\+\\-_~=;\\.,\\*&@\\$\\%\\(\\)\'\\[\\]]+';
     const matchPattern = new RegExp(
         '^'+
-        location.origin +
+        '(' + location.origin + ')?' +
         '(/' + patternElement1 + ')?' +
         '/(' + patternElement1 + ')' +
         '/(' + patternElement1 + ')' +
@@ -58,7 +58,7 @@ $(function(){
     }
 
     function convertLinks(){
-        const elements = $('.markdown-body p a');
+        const elements = $('.markdown-body p');
         let element;
         let url;
         let mat;
@@ -67,15 +67,16 @@ $(function(){
             url = element.innerText;
             mat = url.match(matchPattern);
             if(mat !== null){
-                // let urlPrefix = mat[1];
-                // let owner = mat[2];
-                let repo = mat[3];
-                let commit = mat[4];
-                let filepath = mat[5];
-                let startLine = Number(mat[6]);
+                // let origin = mat[1];
+                // let urlPrefix = mat[2];
+                // let owner = mat[3];
+                let repo = mat[4];
+                let commit = mat[5];
+                let filepath = mat[6];
+                let startLine = Number(mat[7]);
                 let endLine = startLine;
-                if(typeof mat[7] !== "undefined"){
-                    endLine = Number(mat[7]);
+                if(typeof mat[8] !== "undefined"){
+                    endLine = Number(mat[8]);
                 }
                 let commitUrl = getCommitUrl(url, filepath);
                 try{

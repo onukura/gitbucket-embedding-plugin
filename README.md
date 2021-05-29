@@ -34,14 +34,23 @@ for deployment.
 ## Supported link type
 
 ```
-Links Style:
+Link Style 1:
 http(s)://{host_with_or_without_prefix}/{owner}/{repository}/blob/{SHA}/{path/to/file}#L{StartLineNumber}-L{EndLineNumber}
 
-Example1: 
+Link Style 2:
+/{owner}/{repository}/blob/{SHA}/{path/to/file}#L{StartLineNumber}-L{EndLineNumber}
+
+Example-1 with style 1: 
 http://localhost:8080/root/gitbucket/blob/19f0431a3fb4a9c3560dbf9b1d74f2073da7708f/GitBucketCoreModuleSpec.scala#L5-L10
 
-Example2: 
+Example-1 with style 2: 
+/root/gitbucket/blob/19f0431a3fb4a9c3560dbf9b1d74f2073da7708f/GitBucketCoreModuleSpec.scala#L5-L10
+
+Example-2 with style 1: 
 http://localhost/root/gitbucket/blob/19f0431a3fb4a9c3560dbf9b1d74f2073da7708f/src/main/scala/GitBucketCoreModuleSpec.scala#L5-L10
+
+Example-2 with style 2: 
+/root/gitbucket/blob/19f0431a3fb4a9c3560dbf9b1d74f2073da7708f/src/main/scala/GitBucketCoreModuleSpec.scala#L5-L10
 ```
 
 ## Note
@@ -51,14 +60,16 @@ Please use link with sha, not branch name such as `master`. Because `master` cha
 ```
 Good url:
 http://localhost:8080/root/gitbucket/blob/19f0431a3fb4a9c3560dbf9b1d74f2073da7708f/GitBucketCoreModuleSpec.scala#L5-L10
+/root/gitbucket/blob/19f0431a3fb4a9c3560dbf9b1d74f2073da7708f/GitBucketCoreModuleSpec.scala#L5-L10
 
-No Good url:
+Not Good url:
 http://localhost:8080/root/gitbucket/blob/master/GitBucketCoreModuleSpec.scala#L5-L10
+/root/gitbucket/blob/master/GitBucketCoreModuleSpec.scala#L5-L10
 ```
 
 ## Version
 
 Plugin version|GitBucket version
 :---|:---
-1.0.x |4.34.x -
+1.1.x |4.34.x -
 0.1.x |4.34.x -
