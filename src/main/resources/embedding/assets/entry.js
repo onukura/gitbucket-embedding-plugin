@@ -89,7 +89,18 @@ $(function(){
                 }catch(e){}
             }
         }
-        prettyPrint();
     }
+
+    // Initial processing
     convertLinks();
+    prettyPrint();
+
+    setTimeout(function(){ // Delayed execution
+        // Create a hook for prettyPrint function to support preview
+        const original = prettyPrint;
+        prettyPrint = function(){
+            convertLinks();
+            return original.apply(this, arguments);
+        }
+    });
 })
