@@ -25,7 +25,7 @@ $(function(){
             "<span style='font-size:11px;'><a href=" + commitUrl + ">" + commit + "</a></span>",
             "</div>",
             "<div class='panel-body' style='padding:0; background-color:white;'>",
-            "<pre class='embedded-snippet prettyprint linenums:" + lineStartNum + "' style='padding-left:15px; margin-bottom:0;'>",
+            "<pre class='embedded-snippet prettyprint linenums:" + lineStartNum + "' data-filename='" + filename + "' style='padding-left:15px; margin-bottom:0;'>",
             content,
             "</pre>",
             "</div>",
