@@ -81,7 +81,7 @@ $(function(){
                 let commitUrl = getCommitUrl(url, filepath);
                 try{
                     let content = getContent(url);
-                    let linesAll = content.split("\n");
+                    let linesAll = content.split(/\n|\r\n?/);
                     let lines = linesAll.slice(startLine-1, endLine).join("\n");
                     let snippetElement = generateSnippetElement(repo, filepath, commit, startLine, endLine, lines, url, commitUrl);
                     element.insertAdjacentHTML('afterend', snippetElement);
