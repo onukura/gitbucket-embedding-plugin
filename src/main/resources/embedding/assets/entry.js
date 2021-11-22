@@ -25,7 +25,7 @@ $(function(){
             "<span style='font-size:11px;'><a href=" + commitUrl + ">" + commit + "</a></span>",
             "</div>",
             "<div class='panel-body' style='padding:0; background-color:white;'>",
-            "<pre class='embedded-snippet prettyprint linenums:" + lineStartNum + "' style='padding-left:15px; margin-bottom:0;'>",
+            "<pre class='embedded-snippet prettyprint linenums:" + lineStartNum + "' data-filename='" + filename + "' style='padding-left:15px; margin-bottom:0;'>",
             content,
             "</pre>",
             "</div>",
@@ -57,6 +57,10 @@ $(function(){
         return xmlHttp.responseText;
     }
 
+    function escapeHtml(text) {
+        return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+
     function convertLinks(){
         const elements = $('.markdown-body p');
         let element;
@@ -80,16 +84,30 @@ $(function(){
                 }
                 let commitUrl = getCommitUrl(url, filepath);
                 try{
+                    filepath = decodeURIComponent(filepath);
+                    filepath = escapeHtml(filepath);
                     let content = getContent(url);
-                    let linesAll = content.split("\n");
+                    let linesAll = content.split(/\n|\r\n?/);
                     let lines = linesAll.slice(startLine-1, endLine).join("\n");
+                    lines = escapeHtml(lines);
                     let snippetElement = generateSnippetElement(repo, filepath, commit, startLine, endLine, lines, url, commitUrl);
                     element.insertAdjacentHTML('afterend', snippetElement);
                     element.remove();
                 }catch(e){}
             }
         }
-        prettyPrint();
     }
+
+    // Initial processing
     convertLinks();
+    prettyPrint();
+
+    setTimeout(function(){ // Delayed execution
+        // Create a hook for prettyPrint function to support preview
+        const original = prettyPrint;
+        prettyPrint = function(){
+            convertLinks();
+            return original.apply(this, arguments);
+        }
+    });
 })
