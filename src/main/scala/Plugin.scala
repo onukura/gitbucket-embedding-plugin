@@ -14,6 +14,7 @@ class Plugin extends gitbucket.core.plugin.Plugin {
     new Version("1.0.0"),
     new Version("1.0.1"),
     new Version("1.1.0"),
+    new Version("1.2.0"),
   )
 
   override val assetsMappings: Seq[(String, String)] = Seq("/embedding" -> "/embedding/assets")
@@ -22,7 +23,7 @@ class Plugin extends gitbucket.core.plugin.Plugin {
     val jsPath = settings.baseUrl.getOrElse(context.getContextPath) + "/plugin-assets/embedding/entry.js"
     Seq(".*" ->
       s"""</script>
-        |<script src="${jsPath}">""".stripMargin)
+        |<script src="$jsPath">""".stripMargin)
   }
 
 }
